@@ -70,5 +70,7 @@ if identify_file(f) == 'draw':
         time = parser.parse(odpoint.find('time').text)
         w1.time = time
         gpx.waypoints.append(w1)
-    print(gpx.to_xml())
-    target.write(gpx.to_xml())
+    print(gpx.to_xml(version="1.0")) #TODO: Should be 1.1 to include extensions
+    target.write(gpx.to_xml(version="1.0"))
+else:
+    print("File is not ODraw format")
